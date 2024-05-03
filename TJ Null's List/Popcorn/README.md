@@ -1,6 +1,6 @@
 ## Popcorn
 
-https://app.hackthebox.com/machines/4
+https://app.hackthebox.com/machines/popcorn
 
 This machine has been resolved on OSCP machines: [Popcorn](https://github.com/b1d0ws/OSCP/tree/main/TJ%20Null's%20List/Linux%20Boxes/Popcorn)
 
