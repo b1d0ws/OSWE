@@ -14,7 +14,7 @@ Vulnerable Injection Code
 $stmt = $pdo->query("SELECT * FROM login WHERE username='$username' AND password='$password'");
 ```
 
-Upload functions appears to have two methods of litiming the upload. First the file need to have JPG, JPEG & PNG extension and this can be bypassed using double extension.
+Upload functions appears to have two methods of limiting the upload. First the file need to have JPG, JPEG & PNG extension and this can be bypassed using double extension.
 
 The other method checks the magic bytes of the files, so we can just upload a reverse.php.png with PNG magic bytes inside it.
 
