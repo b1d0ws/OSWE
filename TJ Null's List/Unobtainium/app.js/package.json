@@ -1,0 +1,9 @@
+{
+  "name": "unobtainium",
+  "version": "1.0.0",
+  "description": "client",
+  "main": "index.js",
+  "homepage": "http://unobtainium.htb",
+  "author": "felamos <felamos@unobtainium.htb>",
+  "license": "ISC"
+}

