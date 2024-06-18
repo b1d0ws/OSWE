@@ -4,7 +4,7 @@ https://app.hackthebox.com/machines/Unattended
 
 ### www-data
 
-80/tcp  open  http     syn-ack nginx 1.10.3
+80/tcp  open  http     syn-ack nginx 1.10.3  
 443/tcp open  ssl/http syn-ack nginx 1.10.3
 
 We enumerate `nestedflanders.htb` and `www.nestedflanders.htb` on nmap output.
