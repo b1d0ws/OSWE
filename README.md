@@ -8,7 +8,7 @@
 * Advanced Topics ✅
 
 #### TJ Null's List
-* 16/21 Machines
+* 18/21 Machines
 
 #### Challenges
 * https://github.com/bmdyy/tudo ✅
